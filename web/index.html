@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Add to Home">
+    <title>Ophirium</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/GothamBook.css">
+    <link rel="stylesheet" href="assets/css/--mp---Masonry-Gallery-with-Loader.css">
+    <link rel="stylesheet" href="assets/css/marquee.css">
+    <link rel="stylesheet" href="assets/css/Masonry-gallery-cards-responsive.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/qrcode-scan.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-pincode-input.css">
+    <link rel="shortcut icon" sizes="16x16" href="modules/homescreen/imgs/icon-16x16.png">
+    <link rel="shortcut icon" sizes="196x196" href="modules/homescreen/imgs/icon-196x196.png">
+    <link rel="apple-touch-icon-precomposed" href="modules/homescreen/imgs/icon-152x152.png">
+    <link rel="stylesheet" type="text/css" href="modules/homescreen/style/addtohomescreen.css">
+    <style type="text/css">
+        img {
+            border-radius: .25rem !important;
+        }
+    </style>
+    <style type="text/css">
+        .swal2-modal {
+            background-color: #000000 !important;
+            border: 3px solid #f8df31 !important;
+            color: #ffffff !important;
+        }
+        .swal2-title {
+            color: #ffffff !important;
+        }
+        .swal2-content {
+            color: #ffffff !important;
+        }
+
+        .swal2-confirm {
+            background-color: #e0a800 !important;
+            color: #000000 !important;
+            font-size: 1.25rem !important;
+        }
+
+        .swal2-deny {
+            font-size: 1.25rem !important;
+            color: #000000 !important;
+        }
+
+        .swal2-cancel {
+            /*color: #212529 !important;*/
+            font-size: 1.25rem !important;
+        }
+    </style>
+    <style type="text/css">
+        div.pinCode input[type="number"] {
+            font-size: 30px;
+            -webkit-text-security: disc;
+        }
+    </style>
+    <style type="text/css">
+        /*body.dark .modal-content {
+            background-color: #1e2229 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark .modal-content .modal-header,
+        body.dark .modal-content .modal-footer {
+            border-color: #424242 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark .form-control {
+            background-color: #282d36 !important;
+            border-color: #282d36 !important;
+            color: #ffffff !important;
+        }*/
+
+        body.dark .modal-content {
+            background-color: #000000 !important;
+            border: 3px solid #f8df31 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark .modal-content .modal-header,
+        body.dark .modal-content .modal-footer {
+            border-color: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark .form-control {
+            background-color: #0b0f14 !important;
+            border: 3px solid #f8df31 !important;
+            color: #ffffff !important;
+        }
+
+        button:focus,
+        button.form-control:focus,
+        textarea:focus, 
+        textarea.form-control:focus, 
+        input.form-control:focus, 
+        input[type=text]:focus, 
+        input[type=password]:focus, 
+        input[type=email]:focus, 
+        input[type=number]:focus, 
+        [type=text].form-control:focus, 
+        [type=password].form-control:focus, 
+        [type=email].form-control:focus, 
+        [type=tel].form-control:focus, 
+        [contenteditable].form-control:focus {
+          box-shadow: none !important;
+        }
+        
+    </style>
+    <style type="text/css">
+        @media (min-width: 0px) {
+          .card-columns {
+            column-count: 1;
+          }
+        }
+
+        /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
+        @media (min-width: 768px) {
+          .card-columns {
+            column-count: 2;
+          }
+        }
+
+        /* Large devices (desktops, 992px and up) */
+
+        @media (min-width: 992px) {
+          .card-columns {
+            column-count: 3;
+          }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up) */
+
+        @media (min-width: 1200px) {
+          .card-columns {
+            column-count: 3;
+          }
+        }
+    </style>
+    <script type="text/javascript">
+        // localStorage.setItem('refresh_interval', 3000);
+        // localStorage.setItem('connection_url', 'http://localhost:8080');
+
+        localStorage.setItem('refresh_interval', 3000);
+        localStorage.setItem('connection_url', 'https://ophirium-test.herokuapp.com');
+
+        // localStorage.setItem('refresh_interval', 3000);
+        // localStorage.setItem('connection_url', 'https://www.ziongems.com');
+    </script>
+</head>
+
+<body class="dark" style="background: #f7f7f7;">
+    <!-- <section style="background: #434b57;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                        <h6 class="text-center" style="color: #ffffff;margin: 0;">Swipe down to refresh</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- <nav class="navbar navbar-light navigation-clean" style="background: #2a313d;"> -->
+    <!-- <nav class="navbar navbar-light navigation-clean" style="background: #000000;box-shadow: 0px 3px 14px #0e1629;z-index: 1000;"> -->
+    <nav class="navbar navbar-light navigation-clean" style="background: url(assets/img/banner1.jpg);background-size: cover;background-position: center center;position: relative;box-shadow: 0px 3px 14px #000000;z-index: 1000;">
+        <div class="container-fluid"><a class="navbar-brand" href="#">
+                <h2 style="color: #ffffff;padding: 0px;/*border-width: 3.4px;*//*border-style: solid;*//*border-radius: 63px;*/"><img class="img-fluid" src="assets/img/Ophirium.png" style="height: 60px;transform: perspective(0px);"></h2>
+            </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="-webkit-filter: invert(100%) !important;filter: invert(100%) !important;"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="future.html" style="font-size: 20px;">Future of Ophirium</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="font-size: 20px;">Contact Us</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="font-size: 20px;">Need Help</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <section style="background: #171b23;"> -->
+    <section style="background: url(assets/img/our-mission-1.jpg);background-size: cover;background-position: center center;position: relative;padding-top: 40px;">
+        <div id="particles" style="top: 0;position: absolute;width: 100%;height: 100%;left: 0px;opacity: 0.10;filter: contrast(120%);"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center" style="margin-top: 16px;"><img src="assets/img/BABEL.png" style="width: 90px;height: 90px;">
+                        <h1 class="text-center" style="color: #f8df31;text-align: left;text-shadow: 0px 0px 17px #f8df31;margin: 0;"><span id="reward_point">0</span> Ophir</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group"><button class="btn btn-warning btn-block btn-lg send" type="button" style="border-width: 6px;border-color: #ffe000;">Send</button></div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group"><button class="btn btn-warning btn-block btn-lg receive" type="button" style="border-width: 6px;border-color: #ffe000;">Receive</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="modal payment show" tabindex="-1" style="display: block; padding-right: 0px;" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cash-In</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                   <div id="payment-request-button">
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-info" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal pinCode" role="dialog" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">PIN Code</h4>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="d-flex justify-content-center"><div style="width: 240px;"><input type="text" name="mycode" id="pincode-input1"></div></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary clearPin" type="button">Clear PIN</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal shopParameter" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Product</h4>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+                </div>
+                <div class="modal-body">
+                    <div class="form-group"><label style="font-size: 20px;">Parameter 1</label><input type="text" id="parameter" class="form-control" style="font-size: 20px;"></div>
+                    <div class="form-group"><button class="btn btn-info btn-block btn-lg spend" type="button">Spend</button></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-lg btn-secondary" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal sendToQRCode" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send via QR Code</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group"><label style="font-size: 20px;">Ophir to transfer</label><input type="number" id="reward_point" class="form-control" style="font-size: 20px;" value="1"></div>
+                    <div class="form-group"><div class="text-center">
+    <a id="btn-scan-qr">
+    <img class="img-fluid" src="assets/img/qrcode-scan.png">
+    <a/>
+    <canvas hidden="" id="qr-canvas"></canvas>
+    <div id="qr-result" hidden=""><span id="outputData"></span></div>
+</div></div>
+                
+                <h5 class="text-center m-0" style="font-weight: 800 !important;">Click the image to scan</h5>
+                </div>
+                <div class="modal-footer"><button class="btn btn-lg btn-secondary" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal sendToWalletAddress" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send via Wallet Address</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group"><label style="font-size: 20px;">Recipient Wallet Address</label><input type="text" id="wallet_address" class="form-control" style="font-size: 20px;" value=""></div>
+                    <div class="form-group"><label style="font-size: 20px;">Ophir to transfer</label><input type="number" id="reward_point" class="form-control" style="font-size: 20px;" value="1"></div>
+                    <div class="form-group"><button class="btn btn-warning btn-block btn-lg sendToWalletAddress" type="button">Send Ophir</button></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-lg btn-secondary" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal receive" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Receive</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="qrcode text-center"></div>
+                    <h5 class="text-center m-0" style="font-weight: 800 !important;">Your Wallet Address</h5>
+                    <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+                      <h5 class="text-center m-0 wallet_address_label"></h5>
+                    </div>
+                    <h5 class="text-center mt-2 copy_to_clipboard" style="color: #f8df31; cursor: pointer; text-decoration: underline; user-select:none;">Copy to clipboard</h5>
+                    <!-- <input type="text" id="wallet_address" class="form-control"> -->
+                </div>
+                <div class="modal-footer"><button class="btn btn-lg btn-secondary" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- <section style="background: #171b23;"> -->
+    <!-- <section style="background: #000000;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group"><button class="btn btn-block btn-lg send" type="button" style="background: #000000;color: #ffffff;border-width: 2px;border-color: #ffffff;">Send</button></div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group"><button class="btn btn-block btn-lg receive" type="button" style="background: #000000;color: #ffffff;border-width: 2px;border-color: #ffffff;">Receive</button></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- <section style="background: #171b23;"> -->
+    <section style="background: #000000;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <div class="form-group" style="margin: 0;">
+                        <!-- <div class="marquee"></div> -->
+                        <!-- <div id="payment-request-button"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group" style="margin-top: 16px;">
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1" style="font-size: 22px;">
+                                        <!-- <img src="assets/img/history.png" style="width: 24px; opacity: 1"><br> -->
+                                        Transaction History
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-toggle="tab" href="#tab-2" style="font-size: 22px;">
+                                        Shop
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" role="tab" data-toggle="tab" href="#tab-3" style="font-size: 22px;">
+                                        Orders
+                                    </a>
+                                </li> -->
+                            </ul>
+                            <div class="tab-content">
+                                <!-- <div class="tab-pane fade" role="tabpanel" id="tab-4">
+                                    <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Transaction</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">You received 1000 Ophir</h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #57d100;font-size: 24px;">+1000 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: rgb(108,117,125);">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="tab-pane fade show active text-center" role="tabpanel" id="tab-1">
+                                    <!-- <a href="#">
+                                        <div style="background: rgb(0,46,69);background: linear-gradient(0deg, rgba(0,46,69,1) 35%, rgba(0,86,131,1) 98%, rgba(22,31,54,1) 100%, rgba(22,31,54,1) 100%);padding: 5px;border-radius: 10px;"><img class="img-fluid" src="assets/img/zionmall.png" style="width: 200.6px;" /></div>
+                                    </a> -->
+                                    <div class="history mt-2"></div>
+                                    <!-- <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Transaction</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">You received 1000 Ophir</h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #57d100;font-size: 24px;">+1000 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: rgb(108,117,125);">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Transaction</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">You transfered 2000 Ophir</h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #d13f00;font-size: 24px;">-2000 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: rgb(108,117,125);">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Transaction</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">You spent 200 Ophir</h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #d13f00;font-size: 24px;">-200 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: rgb(108,117,125);">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="tab-pane fade text-center" role="tabpanel" id="tab-2">
+                                    <!-- <a href="#">
+                                        <div style="background: rgb(0,46,69);background: linear-gradient(0deg, rgba(0,46,69,1) 35%, rgba(0,86,131,1) 98%, rgba(22,31,54,1) 100%, rgba(22,31,54,1) 100%);padding: 10px;border-radius: 10px;"><img class="img-fluid" src="assets/img/zionmall.png" style="width: 200.6px;" /></div>
+                                    </a> -->
+
+
+                                    <!-- <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-columns">
+                                                <div class="card" style="box-shadow: 0px 2px 20px 0px rgb(225,225,225);">
+                                                    <div class="card-body" style="padding: 0;">
+                                                        <div class="form-group">
+                                                            <div class="d-flex mx-auto" style="/*width: 150px;*/height: 200px;box-shadow: 0px 4px 4px rgb(255,255,255);background: #ffffff;border-bottom: 1px solid rgb(227,227,227);position: relative;"><span style="position: absolute;color: rgb(255,255,255);background: rgb(23,162,184);margin: 5px;padding: 5px;">Johnson &amp; Johnson<br /></span><img class="img-fluid d-flex mx-auto" src="https://cdn.shopify.com/s/files/1/0357/2901/4916/files/partner-gcash_0a702fe4-faf5-4bf5-b08a-3d861fb230d8_480x480.png?v=1604733560" style="object-fit: cover;border-top-left-radius: .25rem;border-top-right-radius: .25rem;" /></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>Gcash (50 PHP)</h5>
+                                                        </div>
+                                                        <div class="form-group" style="margin: 0;"><a href="#">
+                                                                <h6 class="mb-2" style="font-size: 16px;margin: 0 !important;background: #8dc442;color: rgb(255,255,255);">Redeem at location</h6>
+                                                                <ul class="list-inline" style="/*background: #000000;*/background: rgb(0,46,69);background: linear-gradient(0deg, rgba(0,46,69,1) 35%, rgba(0,86,131,1) 98%, rgba(22,31,54,1) 100%, rgba(22,31,54,1) 100%);padding: 10px;border-bottom-right-radius: .25rem;border-bottom-left-radius: .25rem;margin-bottom: 0;">
+                                                                    <li class="list-inline-item"><img src="BABEL.png" style="width: 40px;height: 40px;" /></li>
+                                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                                </ul>
+                                                            </a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="box-shadow: 0px 2px 20px 0px rgb(225,225,225);">
+                                                    <div class="card-body" style="padding: 0;">
+                                                        <div class="form-group">
+                                                            <div class="d-flex mx-auto" style="/*width: 150px;*/height: 200px;box-shadow: 0px 4px 4px rgb(255,255,255);background: #ffffff;border-bottom: 1px solid rgb(227,227,227);position: relative;"><span style="position: absolute;color: rgb(255,255,255);background: rgb(23,162,184);margin: 5px;padding: 5px;">Johnson &amp; Johnson<br /></span><img class="img-fluid d-flex mx-auto" src="https://cdn.shopify.com/s/files/1/0357/2901/4916/files/partner-gcash_0a702fe4-faf5-4bf5-b08a-3d861fb230d8_480x480.png?v=1604733560" style="object-fit: cover;border-top-left-radius: .25rem;border-top-right-radius: .25rem;" /></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>Gcash (50 PHP)</h5>
+                                                        </div>
+                                                        <div class="form-group" style="margin: 0;"><a href="#">
+                                                                <h6 class="mb-2" style="font-size: 16px;margin: 0 !important;background: #f99f1c;color: rgb(255,255,255);">Self organized shipping</h6>
+                                                                <ul class="list-inline" style="/*background: #000000;*/background: rgb(0,46,69);background: linear-gradient(0deg, rgba(0,46,69,1) 35%, rgba(0,86,131,1) 98%, rgba(22,31,54,1) 100%, rgba(22,31,54,1) 100%);padding: 10px;border-bottom-right-radius: .25rem;border-bottom-left-radius: .25rem;margin-bottom: 0;">
+                                                                    <li class="list-inline-item"><img src="BABEL.png" style="width: 40px;height: 40px;" /></li>
+                                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                                </ul>
+                                                            </a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="box-shadow: 0px 2px 20px 0px rgb(225,225,225);">
+                                                    <div class="card-body" style="padding: 0;">
+                                                        <div class="form-group">
+                                                            <div class="d-flex mx-auto" style="/*width: 150px;*/height: 200px;box-shadow: 0px 4px 4px rgb(255,255,255);background: #ffffff;border-bottom: 1px solid rgb(227,227,227);position: relative;"><span style="position: absolute;color: rgb(255,255,255);background: rgb(23,162,184);margin: 5px;padding: 5px;">Johnson &amp; Johnson<br /></span><img class="img-fluid d-flex mx-auto" src="https://cdn.shopify.com/s/files/1/0357/2901/4916/files/partner-gcash_0a702fe4-faf5-4bf5-b08a-3d861fb230d8_480x480.png?v=1604733560" style="object-fit: cover;border-top-left-radius: .25rem;border-top-right-radius: .25rem;" /></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div>
+                                                                <h5>50 Regular Load</h5>
+                                                                <h6 class="text-muted mb-2" style="font-size: 16px;">Estimated Time: 60 minutes<br /></h6>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item"><img src="BABEL.png" style="width: 40px;height: 40px;" /></li>
+                                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                                </ul>
+                                                                <p style="color: #d13f00;margin: 0;">NOT YET CLAIMED</p>
+                                                                <p style="color: rgb(108,117,125);margin: 0;">04/29/2021 23:42<br /></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="margin: 0;"><a href="#">
+                                                                <h6 class="mb-2" style="font-size: 16px;margin: 0 !important;background: #f99f1c;color: rgb(255,255,255);border-bottom-right-radius: .25rem;border-bottom-left-radius: .25rem;">Self organized shipping</h6>
+                                                            </a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                    <!-- <div class="shop card-columns mt-2"></div> -->
+                                    <div class="shop mt-2"></div>
+
+                                    <!-- <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">50 Regular Load</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">Estimated Time: 60 minutes</h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                </ul><button class="btn btn-info btn-block" type="button">Spend</button>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="tab-pane fade text-center" role="tabpanel" id="tab-3">
+                                    <!-- <a href="#">
+                                        <div style="background: rgb(0,46,69);background: linear-gradient(0deg, rgba(0,46,69,1) 35%, rgba(0,86,131,1) 98%, rgba(22,31,54,1) 100%, rgba(22,31,54,1) 100%);padding: 5px;border-radius: 10px;"><img class="img-fluid" src="assets/img/zionmall.png" style="width: 200.6px;" /></div>
+                                    </a> -->
+                                    <div class="orders mt-2"></div>
+                                    <!-- <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">50 Regular Load</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">Estimated Time: 60 minutes<br></h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: #d13f00;margin: 0;">NOT YET CLAIMED</p>
+                                                <p class="card-text" style="color: rgb(108,117,125);margin: 0;">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group" style="margin-bottom: 8px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">50 Regular Load</h5>
+                                                <h6 class="text-muted card-subtitle mb-2" style="font-size: 16px;">Estimated Time: 60 minutes<br></h6>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item"><img src="assets/img/BABEL.png" style="width: 40px;height: 40px;"></li>
+                                                    <li class="list-inline-item"><span style="color: #f8df31;font-size: 24px;">50 Ophir</span></li>
+                                                </ul>
+                                                <p class="card-text" style="color: #57d100;margin: 0;">CLAIMED</p>
+                                                <p class="card-text" style="color: rgb(108,117,125);margin: 0;">04/29/2021 23:42<br></p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        // $('div.payment').modal('toggle');
+
+        var stripe = Stripe('pk_test_51IVtCaFexfjPoyS3wquPjLeojTcL05a2MqlpnGcZSEdOKvso4NUIDSYuH3HKLjObprDMgvhrDrwe1INXDhNAmtDn004XC6j4Qo');
+        var paymentRequest = stripe.paymentRequest({
+          country: 'PH',
+          currency: 'php',
+          total: {
+            label: 'Demo',
+            amount: 10,
+          },
+          requestPayerName: true,
+          requestPayerEmail: true,
+        });
+
+        var elements = stripe.elements();
+        var prButton = elements.create('paymentRequestButton', {
+          paymentRequest: paymentRequest,
+        });
+
+        // Check the availability of the Payment Request API first.
+        paymentRequest.canMakePayment().then(function(result) {
+          if (result) {
+            prButton.mount('#payment-request-button');
+          } else {
+            document.getElementById('payment-request-button').style.display = 'none';
+          }
+        });
+
+        paymentRequest.on('paymentmethod', function(ev) {
+          // Confirm the PaymentIntent without handling potential next actions (yet).
+          stripe.confirmCardPayment(
+            clientSecret,
+            {payment_method: ev.paymentMethod.id},
+            {handleActions: false}
+          ).then(function(confirmResult) {
+            if (confirmResult.error) {
+              // Report to the browser that the payment failed, prompting it to
+              // re-show the payment interface, or show an error message and close
+              // the payment interface.
+              ev.complete('fail');
+            } else {
+              // Report to the browser that the confirmation was successful, prompting
+              // it to close the browser payment method collection interface.
+              ev.complete('success');
+              // Check if the PaymentIntent requires any actions and if so let Stripe.js
+              // handle the flow. If using an API version older than "2019-02-11" instead
+              // instead check for: `paymentIntent.status === "requires_source_action"`.
+              if (confirmResult.paymentIntent.status === "requires_action") {
+                // Let Stripe.js handle the rest of the payment flow.
+                stripe.confirmCardPayment(clientSecret).then(function(result) {
+                  if (result.error) {
+                    // The payment failed -- ask your customer for a new payment method.
+                  } else {
+                    // The payment has succeeded.
+                  }
+                });
+              } else {
+                // The payment has succeeded.
+              }
+            }
+          });
+        });
+    </script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert2@10.js"></script>
+    <script type="text/javascript" src="assets/js/moment.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/qrcode-generate-lib.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-pincode-input.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/jquery-3.4.1.slim.min.js"></script> -->
+    <script type="text/javascript">
+        // $('div.pinCode').modal('toggle');
+        // $('#pincode-input1').pincodeInput({ inputs: 4, complete:function(value, e, errorElement){
+        //   alert("code entered: " + value);
+        //   $(errorElement).html("I'm sorry, but the code not correct");
+        // }});
+        // $('#pincode-input1').pincodeInput().data('plugin_pincodeInput').focus()
+    </script>
+    <script type="text/javascript" src="assets/js/controllers/app.js"></script>
+    <script type="text/javascript" src="assets/js/qr-packed-lib.js"></script>
+    <script type="text/javascript" src="assets/js/controllers/qrcode-scan.js"></script>
+    <script type="text/javascript" src="modules/homescreen/src/addtohomescreen.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script type="text/javascript">
+
+        // particlesJS(
+        //     "particles",
+        //     {
+        //        "particles":{
+        //           "number":{
+        //              "value":30,
+        //              "density":{
+        //                 "enable":false,
+        //                 "value_area":200
+        //              }
+        //           },
+        //           "color":{
+        //              "value":"#ffffff"
+        //           },
+        //           "shape":{
+        //              "type":"image",
+        //              "stroke":{
+        //                 "width":0,
+        //                 "color":"#000000"
+        //              },
+        //              "polygon":{
+        //                 "nb_sides":3
+        //              },
+        //              "image":{
+        //                 "src":"assets/img/BABEL.png",
+        //                 "width":100,
+        //                 "height":100
+        //              }
+        //           },
+        //           "opacity":{
+        //              "value":0,
+        //              "random":false,
+        //              "anim":{
+        //                 "enable":false,
+        //                 "speed":1,
+        //                 "opacity_min":0.1,
+        //                 "sync":false
+        //              }
+        //           },
+        //           "size":{
+        //              "value":28.05971106514665,
+        //              "random":true,
+        //              "anim":{
+        //                 "enable":false,
+        //                 "speed":25,
+        //                 "size_min":0.1,
+        //                 "sync":false
+        //              }
+        //           },
+        //           "line_linked":{
+        //              "enable":true,
+        //              "distance":150,
+        //              "color":"#ffffff",
+        //              "opacity":0,
+        //              "width":0
+        //           },
+        //           "move":{
+        //              "enable":true,
+        //              "speed":1.5,
+        //              "direction":"none",
+        //              "random":false,
+        //              "straight":false,
+        //              "out_mode":"bounce",
+        //              "bounce":false,
+        //              "attract":{
+        //                 "enable":false,
+        //                 "rotateX":600,
+        //                 "rotateY":1200
+        //              }
+        //           }
+        //        },
+        //        "interactivity":{
+        //           "detect_on":"canvas",
+        //           "events":{
+        //              "onhover":{
+        //                 "enable":true,
+        //                 "mode":"repulse"
+        //              },
+        //              "onclick":{
+        //                 "enable":true,
+        //                 "mode":"push"
+        //              },
+        //              "resize":true
+        //           },
+        //           "modes":{
+        //              "grab":{
+        //                 "distance":400,
+        //                 "line_linked":{
+        //                    "opacity":1
+        //                 }
+        //              },
+        //              "bubble":{
+        //                 "distance":400,
+        //                 "size":40,
+        //                 "duration":2,
+        //                 "opacity":8,
+        //                 "speed":3
+        //              },
+        //              "repulse":{
+        //                 "distance":200,
+        //                 "duration":0.4
+        //              },
+        //              "push":{
+        //                 "particles_nb":4
+        //              },
+        //              "remove":{
+        //                 "particles_nb":2
+        //              }
+        //           }
+        //        },
+        //        "retina_detect":true
+        //     }
+        //  );
+
+    </script>
+    <script type="text/javascript" >
+    // addToHomescreen.removeSession();     // use this to remove the localStorage variable
+    
+    var ath = addToHomescreen({
+        debug: 'android',           // activate debug mode in ios emulation
+        skipFirstVisit: false,  // show at first access
+        startDelay: 0,          // display the message right away
+        lifespan: 0,            // do not automatically kill the call out
+        displayPace: 0,         // do not obey the display pace
+        privateModeOverride: true,  // show the message in private mode
+        maxDisplayCount: 0      // do not obey the max display count
+    });
+
+    // ath.clearSession();      // reset the user session
+    </script>
+    <script type="text/javascript">
+        $('a[href="#tab-1"] img').css('opacity', '1');
+        $('a[href="#tab-2"] img').css('opacity', '.4');
+        $('a[href="#tab-3"] img').css('opacity', '.4');
+
+        $('a.nav-link').click(function() {
+            let id = $(this).closest('a.nav-link').attr('href');
+            // console.log(id);
+            $('a[href="#tab-1"] img').css('opacity', '.4');
+            $('a[href="#tab-2"] img').css('opacity', '.4');
+            $('a[href="#tab-3"] img').css('opacity', '.4');
+
+            $('a[href="' + id + '"] img').css('opacity', '1');
+        });
+
+        
+    </script>
+    <!-- <script src="assets/js/controllers/service.js"></script> -->
+</body>
+
+</html>

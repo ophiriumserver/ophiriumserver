@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Authentication</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style type="text/css">
+		* {
+			font-family: Barlow;
+		}
+
+		body {
+			background: #f1f1f1;
+		}
+
+		img {
+		  image-rendering: pixelated;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- <div class="form-group">
+		<h6>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpZnVlbCIsIm5hbWUiOiJhNDY5MzJlYS1hNGU4LTExZWItYmNiYy0wMjQyYWMxMzAwMDIiLCJpYXQiOjE1MTYyMzkwMjJ9.8j0dZZYZFa2BIi-2He3CV-PIQNMRUWdLi-y_9M-A-Ro</h6>
+	</div> -->
+
+	<section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-8 col-xl-8">
+                    <div class="form-group" style="margin: 0;margin-top: 10px;">
+                        <div class="status"></div>
+                    </div>
+                    <div class="card shadow-lg o-hidden border-0 my-3">
+                        <div class="card-body p-0">
+                            <div class="row">
+                                <!-- <div class="col-lg-6 d-none d-lg-flex">
+                                    <div class="flex-grow-1 bg-login-image" style="background-image: url(&quot;assets/img/aiw_logo.jpg&quot;);"></div>
+                                </div> -->
+                                <div class="col">
+                                    <div class="p-5">
+                                        <!-- <div class="text-center"><img class="img-fluid" src="assets/img/rml_logo.jpg" style="width: 100px;"></div> -->
+                                        <div class="text-left">
+                                            <!-- <div id="qrcode"></div> -->
+                                           	<h1>REWARD APP</h1>
+                                        </div>
+                                        <div class="text-center">
+                                            <div id="qrcode"></div>
+                                        </div>
+                                        <div class="text-left">
+                                            <h6><span style="color: #2396f8">http://test.rewardapp.com/account?payload=</span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpZnVlbCIsIm5hbWUiOiJhNDY5MzJlYS1hNGU4LTExZWItYmNiYy0wMjQyYWMxMzAwMDIiLCJpYXQiOjE1MTYyMzkwMjJ9.8j0dZZYZFa2BIi-2He3CV-PIQNMRUWdLi-y_9M-A-Ro</h6>
+                                        </div>
+                                        <!-- <div class="text-center"><a class="small" href="forgot-password.html">Forgot Password?</a></div>
+                                        <div class="text-center"><a class="small" href="register.html">Create an Account!</a></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+	<script
+	  src="https://code.jquery.com/jquery-3.6.0.min.js"
+	  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	  crossorigin="anonymous"></script>
+	  	<script type="text/javascript" src="qrcode-generator-lib.js"></script>
+	<script type="text/javascript">
+		var typeNumber = 9;
+		var errorCorrectionLevel = 'L';
+		var qr = qrcode(typeNumber, errorCorrectionLevel);
+		qr.addData('http://192.168.254.44:8080/api/account/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjoiLU1aTmN0UTJ4V0EyVjVVRGtSYm4iLCJpYXQiOjE2MTk2MTYwNDUsImV4cCI6NDc3MzIxNjA0NX0.T0yl31WYgwUuhwSW5slXDmjquiYWu-jtJiTpsEOrEws');
+		qr.make();
+		
+		$('div#qrcode').html(qr.createImgTag());
+		$('div#qrcode img').attr('height', '200');
+		$('div#qrcode img').attr('width', '200');
+	</script>
+</html>

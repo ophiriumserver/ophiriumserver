@@ -1,0 +1,42 @@
+{
+  "name": "mother-engine",
+  "version": "1.0.0",
+  "description": "MOTHER",
+  "main": "./app.js",
+  "scripts": {
+    "test": "npm install, node ./app.js",
+    "start": "node ./app.js"
+  },
+  "author": "Mac Neil Ivan Tumacay",
+  "license": "MIT",
+  "dependencies": {
+    "@vonage/server-sdk": "^2.10.10",
+    "axios": "^0.21.4",
+    "body-parser": "^1.14.1",
+    "bootstrap-pincode-input": "^3.0.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ethereumjs-tx": "^2.1.2",
+    "express": "^4.17.1",
+    "express-jwt": "^3.3.0",
+    "facebook-chat-api": "^1.8.0",
+    "fb-messenger": "^2.3.1",
+    "fb-messenger-bot-api": "^4.4.0",
+    "firebase": "^8.2.9",
+    "jsonwebtoken": "^5.4.1",
+    "node-audiorecorder": "^2.2.0",
+    "node-mic-record": "0.0.1",
+    "node-webcam": "^0.8.0",
+    "nodemailer": "^6.6.3",
+    "python-shell": "^3.0.0",
+    "qr-code-scanner": "^1.0.8",
+    "qr-scanner": "^1.2.0",
+    "request-ip": "^2.1.3",
+    "send-crypto": "^0.2.33",
+    "stripe": "^8.148.0",
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2",
+    "uuid-by-string": "^3.0.2",
+    "web3": "^1.2.2"
+  }
+}

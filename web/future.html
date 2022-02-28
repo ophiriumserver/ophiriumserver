@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ophirium</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/GothamBook.css">
+    <link rel="stylesheet" href="assets/css/--mp---Masonry-Gallery-with-Loader.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/marquee.css">
+    <link rel="stylesheet" href="assets/css/Masonry-gallery-cards-responsive.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.config.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/qrcode-scan.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style type="text/css">
+        section {
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // localStorage.setItem('connection_url', 'http://localhost:8080');
+        localStorage.setItem('connection_url', 'https://ophirium-test.herokuapp.com');
+        // localStorage.setItem('connection_url', 'https://www.ziongems.com');
+    </script>
+</head>
+
+<body style="background: #f7f7f7;">
+    <nav class="navbar navbar-light navigation-clean" style="background: #000000;z-index: 1000;">
+        <div class="container-fluid"><a class="navbar-brand" href="#">
+                <h2 style="color: #ffffff;padding: 7px;/*border-width: 3.4px;*//*border-style: solid;*//*border-radius: 63px;*/"><img class="img-fluid" src="assets/img/Ophirium.png" style="height: 60px;transform: perspective(0px);"></h2>
+            </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="-webkit-filter: invert(100%) !important;filter: invert(100%) !important;"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="future.html" style="font-size: 20px;">Future of Ophirium</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="font-size: 20px;">Contact Us</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#" style="font-size: 20px;">Need Help</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="modal send" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group"><label style="font-size: 20px;">Ophir to transfer</label><input type="number" id="reward_point" class="form-control" style="font-size: 20px;" value="1"></div>
+                    <div class="form-group"><div class="text-center">
+	<a id="btn-scan-qr">
+	<img class="img-fluid" src="assets/img/qrcode-scan.png">
+	<a/>
+	<canvas hidden="" id="qr-canvas"></canvas>
+	<div id="qr-result" hidden=""><span id="outputData"></span></div>
+</div></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-info" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal receive" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Receive</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="qrcode text-center"></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-info" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <!-- <section style="background: linear-gradient( rgba(20, 22, 27, 0.9), rgba(20, 22, 27, 0.9) ), url(&quot;assets/img/banner.jpg&quot;) center / cover, #131921;position: relative;border-bottom: 7.4px double #f8df31;"> -->
+    <section style="background: url(&quot;assets/img/banner.jpg&quot;) center / cover, #000000;position: relative;border-bottom: 7.4px double #f8df31;">
+        <div id="particles" style="top: 0;position: absolute;width: 100%;height: 100%;left: 0px;opacity: 0.50;filter: contrast(120%);"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-center" data-aos="fade-up" data-aos-duration="1000" style="margin-top: 16px;"><img class="img-fluid" src="assets/img/BABEL.png" style="width: 200px;height: 200px;transform: perspective(0px);"></div>
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="1200">
+                        <h1 class="text-center" style="color: #f8df31;margin: 0;/*text-shadow: 0px 0px 17px #f8df31;*/"><img class="img-fluid" src="assets/img/Ophirium.png" style="height: 80px;transform: perspective(0px);"></h1>
+                        <h4 class="text-center" style="color: #ffffff;margin: 0;">Integrating Business Transaction Seamlessly</h4>
+                    </div>
+                    <div class="form-group text-center" data-aos="fade-up" data-aos-duration="1400">
+                        <ul>
+                            <li class="list-inline-item" style="padding-top: 10px;"><button class="btn btn-warning btn-lg generate" type="button" style="border-width: 6px;border-color: #ffe000;">GENERATE E-WALLET</button></li><br>
+                            <li class="list-inline-item" style="padding-top: 10px;"><button class="btn btn-warning btn-lg wallet" type="button" style="border-width: 6px;border-color: #ffe000; display: none;">MY E-WALLET</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background: linear-gradient(rgb(33 33 18 / 80%), rgb(0 0 0 / 100%)), url(assets/img/map-bg.png) center / cover, #131921;/*background: linear-gradient( rgba(20, 22, 27, 0.9), rgba(20, 22, 27, 0.9) ), url(&quot;assets/img/world-banner.jpg&quot;) center / cover, #131921;*/position: relative;">
+        <div id="particles-2" style="top: 0;position: absolute;width: 100%;height: 100%;left: 0px;opacity: 0.10;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group" style="margin-top: 16px;">
+                        <div data-aos="fade-up" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                            <h3 class="text-center" style="color: #f8df31;text-align: left;text-shadow: 0px 0px 17px #f8df31;">Bridging the Gap with the Financial Techonology of the Future, Today</h3><img src="assets/img/line2.png">
+                        </div>
+                        <h5 class="text-left" data-aos="fade-up" data-aos-duration="1200" style="color: #ffffff;">To create a coin that will have usability and eventually be used as a regular medium for payment transaction and availing goods and services.</h5>
+                        <h5 class="text-left" data-aos="fade-up" data-aos-duration="1400" style="color: #ffffff;">To empower the MICRO Businesses and SME’s by harnessing their potential in the resources and connection they already have by adopting a common medium for transaction among themselves and a platform to enable this process.</h5>
+                    </div>
+                    <div class="form-group" style="padding-top: 40px;">
+                        <div data-aos="fade-up" data-aos-duration="1600" class="text-center" style="margin-bottom: 20px;">
+                            <h2 class="text-center" style="color: #f8df31;text-align: left;text-shadow: 0px 0px 17px #f8df31;">Roadmap: The Birth of Ophir</h2><img src="assets/img/line2.png">
+                        </div>
+                        <div data-aos="fade-up" data-aos-duration="1800" class="roadmap-slider owl-carousel owl-loaded owl-drag">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage">
+                                    <div class="owl-item"><span style="color: #f8df31;">November 2020</span>
+                                        <p style="color: rgb(255,255,255);">The Ophir idea was officially born, on our minds</p>
+                                    </div>
+                                    <div class="owl-item"><span style="color: #f8df31;">January 2021</span>
+                                        <p style="color: rgb(255,255,255);">Converting the Ophir into reality</p>
+                                    </div>
+                                    <div class="owl-item"><span style="color: #f8df31;">April 2021</span>
+                                        <p style="color: rgb(255,255,255);">Ophir was officially born</p>
+                                    </div>
+                                    <div class="owl-item"><span style="color: #f8df31;">May 2021</span>
+                                        <p style="color: rgb(255,255,255);">Ophir @ PHP 1.00 per unit</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div data-aos="fade-down" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                        <h3 class="text-center">Ophir Proceeds Allocation</h3><img src="assets/img/line2.png">
+                    </div>
+                    <div class="form-group" data-aos="fade-right" data-aos-duration="1200" style="background: #eeeeee;margin-top: 16px;padding-bottom: 20px;">
+                        <div><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Operating Expense&quot;,&quot;Dividends of Key People&quot;,&quot;Liquidity of Upcoming Projects&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:[&quot;rgb(126,126,126)&quot;,&quot;#109ca7&quot;,&quot;#f8df31&quot;],&quot;borderColor&quot;:[&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;],&quot;data&quot;:[&quot;20&quot;,&quot;30&quot;,&quot;50&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:true,&quot;reverse&quot;:false,&quot;position&quot;:&quot;right&quot;},&quot;title&quot;:{&quot;position&quot;:&quot;top&quot;,&quot;display&quot;:true,&quot;text&quot;:&quot;&quot;,&quot;fontFamily&quot;:&quot;GothamBook !important&quot;,&quot;fontColor&quot;:&quot;#ffffff !important&quot;}}}"></canvas></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div data-aos="fade-down" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                        <h3 class="text-center">Ophir Distribution</h3><img src="assets/img/line2.png">
+                    </div>
+                    <div class="form-group" data-aos="fade-left" data-aos-duration="1200" style="background: #eeeeee;margin-top: 16px;padding-bottom: 20px;">
+                        <div><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Mac&quot;,&quot;Associates&quot;,&quot;Team&quot;,&quot;Reserve&quot;,&quot;Crowd Sale&quot;,&quot;Bonus&quot;,&quot;Others&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:[&quot;rgb(126,126,126)&quot;,&quot;#109ca7&quot;,&quot;#f8df31&quot;,&quot;#4e73df&quot;,&quot;#03dff1&quot;,&quot;#7df5ff&quot;,&quot;rgb(205,251,255)&quot;],&quot;borderColor&quot;:[&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;,&quot;#4e73df&quot;],&quot;data&quot;:[&quot;20&quot;,&quot;1&quot;,&quot;10&quot;,&quot;0&quot;,&quot;50&quot;,&quot;5&quot;,&quot;14&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:true,&quot;reverse&quot;:false,&quot;position&quot;:&quot;right&quot;},&quot;title&quot;:{&quot;position&quot;:&quot;top&quot;,&quot;display&quot;:true,&quot;text&quot;:&quot;&quot;,&quot;fontFamily&quot;:&quot;GothamBook !important&quot;,&quot;fontColor&quot;:&quot;#ffffff !important&quot;}}}"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- <section style="background: linear-gradient(rgba(18, 25, 33, 0.8), rgba(18, 25, 33, 0.8)), url(&quot;assets/img/map-bg.png&quot;) center / cover, #131921;border-bottom: 7.4px double #f8df31;">
+        <div class="container">
+            <div data-aos="fade-up" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                <h2 class="text-center" style="color: #f8df31;padding-top: 20px;margin-bottom: 20px;text-shadow: 0px 0px 17px #f8df31;">Advantages of Owning Piece of Ophir</h2><img src="assets/img/line2.png">
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="1200">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">Exposure</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Platform showcases both their profile and products/services<br></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="1400">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">Connection</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Price stability due to controlled distribution</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="1600">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">Collaboration</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Price stability due to controlled distribution</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="1800">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">Access to Financing</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Price stability due to controlled distribution</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">&nbsp;Professional Growth</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Price stability due to controlled distribution</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="form-group" data-aos="fade-up" data-aos-duration="2200">
+                        <div class="card" style="border-width: 6px;border-color: #f8df31;">
+                            <div class="card-header" style="background: #f8df31;">
+                                <h4 class="text-center" style="color: rgb(255,255,255);">Centralized Supply Chain</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center" style="margin-bottom: 16px;">Price stability due to controlled distribution</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section style="background: #000000;border-bottom-style: solid;border-bottom-color: #f8df31;">
+        <!-- <div id="particles-1" style="top: 0;position: absolute;width: 100%;height: 100%;left: 0px;opacity: 0.10;"></div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group" style="margin-top: 16px;">
+                        <div data-aos="fade-up" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                            <h3 class="text-center" style="color: #f8df31;text-align: left;text-shadow: 0px 0px 17px #f8df31;">Frequently Asked Questions&nbsp;</h3><img src="assets/img/line2.png">
+                        </div>
+                        <div role="tablist" data-aos="fade-up" data-aos-duration="1200" id="accordion-1">
+                            <div class="card">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1" style="color: #131921;">How to do and achieve the long-term vision?</a></h5>
+                                </div>
+                                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p class="card-text">We have to develop adoption - create a need for coins/gems. We need to create a community of our own that will embrace the concept and the use of gems. A community that will patronize and utilize the function of gem/coin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-2" href="#accordion-1 .item-2" style="color: #131921;">What type of community?</a></h5>
+                                </div>
+                                <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p class="card-text">Business Community and those in the Cooperative sector are the priority. Priority is with those in the business already but membership is open for all individuals that will commit to create their own business enterprise however small it is. This is to encourage the growth of business and enterprising spirit among members as we believe that creation of more SMEs is the answer for jobs creation and ability to provide for the needs of each household.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="#accordion-1 .item-3" style="color: #131921;">What are the platform for the business community?</a></h5>
+                                </div>
+                                <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p class="card-text">To assemble this community, a website (platform) is to be created for their Digital Identity. The website (platform) should be a social e-commerce functionality where the profile of each member is shown and a section where they can showcase their goods and services. A payment system via Ophir (or additionally Gcash) is also embedded in their own page for B2B or P2P transactions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="card">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-4" href="#accordion-1 .item-4" style="color: #131921;">What are the benefits for members and business owners?</a></h5>
+                                </div>
+                                <div class="collapse show item-4" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <p class="card-text">This will be the main feature when the concept is presented to the business community.<br></p>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Exposure<br></h5>
+                                            <p class="card-text">There is a platform that showcases both their profile and products/services.<br></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Connection<br></h5>
+                                            <p class="card-text">Access to other business people/buyers on the platform. Per category.<br></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Collaboration<br></h5>
+                                            <p class="card-text">Being able to assemble similar minded people from the community for a common project and benifits.<br></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Access to Financing</h5>
+                                            <p class="card-text">The management will facilitate financing for eligible members via its partnership with banks and other lenders.<br></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Learning &amp; Professional Growth</h5>
+                                            <p class="card-text">There is so much to learn from each other business people and business approach. There will be training and new methodology that will be scheduled for the growth and continued learning of members.<br></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="card">
+                                <div class="card-header" role="tab">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-5" href="#accordion-1 .item-5" style="color: #131921;">What are the fees and charges involved?</a></h5>
+                                </div>
+                                <div class="collapse item-5" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Sample Membership Fee =&nbsp;P5,000<br></h5>
+                                            <p class="card-text">1. One year with Freebies and Giveaways<br>2. Plus Ophir tokens equivalent to 80% of their membership fee<br></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <h5 style="color: #f8df31;">Trial Membership<br></h5>
+                                            <p class="card-text">This is for those that do not have funds yet but is willing to be part of the community and engage in the business enterprise. They will be accepted for 3 months with free Ophir token of ____ pcs each month. On the 3rd month, reminder in the system will be activated for Full membership.<br></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background: linear-gradient(rgb(0 0 0 / 90%), rgb(0 0 0 / 80%)), url(assets/img/map-bg.png) center / cover, #131921;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group" style="margin-top: 16px;">
+                        <div data-aos="fade-up" data-aos-duration="1000" class="text-center" style="margin-bottom: 20px;">
+                            <h3 class="text-center" style="color: #f8df31;text-align: left;text-shadow: 0px 0px 17px #f8df31;">Contact Details</h3><img src="assets/img/line2.png">
+                        </div>
+                        <h5 class="text-center" data-aos="fade-up" data-aos-duration="1200" style="color: #ffffff;word-break: break-word;">Due to the nature of the Ophir as a reward points, transactions and communications can only be coursed throught online.&nbsp;<a href="#" style="color: #f8df31;"><br>http://www.facebook.com/Ophirium<br></a><br><br></h5>
+                        <h6 class="text-center" data-aos="fade-up" data-aos-duration="1400" style="color: #f8df31;text-align: left;/*text-shadow: 0px 0px 17px #f8df31;*/">© Ophir 2021</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert2@10.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/js/qrcode-generate-lib.js"></script>
+    <!-- <script src="assets/js/controllers/app.js"></script> -->
+    <script src="assets/js/qr-packed-lib.js"></script>
+    <script src="assets/js/controllers/qrcode-scan.js"></script>
+    <script src="assets/js/controllers/service.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+          $(".owl-carousel").owlCarousel();
+
+          if(localStorage.token != null || localStorage.token != undefined) {
+            let wallet = localStorage.connection_url + '/web/?token=' + localStorage.token;
+            $('ul.navbar-nav').append('<li class="nav-item"><a class="nav-link" href="' + wallet + '" style="font-size: 20px;">My E-Wallet</a></li>');
+            $('button.wallet').css('display', 'block');
+          }
+
+        });
+
+        particlesJS(
+            "particles",
+            {
+               "particles":{
+                  "number":{
+                     "value":30,
+                     "density":{
+                        "enable":false,
+                        "value_area":200
+                     }
+                  },
+                  "color":{
+                     "value":"#ffffff"
+                  },
+                  "shape":{
+                     "type":"image",
+                     "stroke":{
+                        "width":0,
+                        "color":"#000000"
+                     },
+                     "polygon":{
+                        "nb_sides":3
+                     },
+                     "image":{
+                        "src":"assets/img/BABEL.png",
+                        "width":220,
+                        "height":200
+                     }
+                  },
+                  "opacity":{
+                     "value":1,
+                     "random":false,
+                     "anim":{
+                        "enable":false,
+                        "speed":1,
+                        "opacity_min":0.1,
+                        "sync":false
+                     }
+                  },
+                  "size":{
+                     "value":28.05971106514665,
+                     "random":true,
+                     "anim":{
+                        "enable":false,
+                        "speed":25,
+                        "size_min":0.1,
+                        "sync":false
+                     }
+                  },
+                  "line_linked":{
+                     "enable":true,
+                     "distance":150,
+                     "color":"#ffffff",
+                     "opacity":0,
+                     "width":0
+                  },
+                  "move":{
+                     "enable":true,
+                     "speed":1.5,
+                     "direction":"none",
+                     "random":false,
+                     "straight":false,
+                     "out_mode":"bounce",
+                     "bounce":false,
+                     "attract":{
+                        "enable":false,
+                        "rotateX":600,
+                        "rotateY":1200
+                     }
+                  }
+               },
+               "interactivity":{
+                  "detect_on":"canvas",
+                  "events":{
+                     "onhover":{
+                        "enable":true,
+                        "mode":"repulse"
+                     },
+                     "onclick":{
+                        "enable":true,
+                        "mode":"push"
+                     },
+                     "resize":true
+                  },
+                  "modes":{
+                     "grab":{
+                        "distance":400,
+                        "line_linked":{
+                           "opacity":1
+                        }
+                     },
+                     "bubble":{
+                        "distance":400,
+                        "size":40,
+                        "duration":2,
+                        "opacity":8,
+                        "speed":3
+                     },
+                     "repulse":{
+                        "distance":200,
+                        "duration":0.4
+                     },
+                     "push":{
+                        "particles_nb":4
+                     },
+                     "remove":{
+                        "particles_nb":2
+                     }
+                  }
+               },
+               "retina_detect":true
+            }
+         );
+
+        $('button.wallet').click(function() {
+            window.location.assign(localStorage.connection_url + '/web/?token=' + localStorage.token);
+        });
+
+        $('button.generate').click(function() {
+            fetch(localStorage.connection_url + '/api/account', {
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjQwOTkzNzIsImV4cCI6NDc3NzY5OTM3Mn0.__xIqaMbhGVOBxZxh6P4tTUsur6fW-hDofmUubD3eck'
+              },
+              body: JSON.stringify({
+              }),
+            })
+            .then(data => data.json())
+            .then(response => {
+                localStorage.setItem('token', response.data.token);
+
+                Swal.fire(
+                  'Success',
+                  'Transaction Successful',
+                  'success'
+                )
+
+                // // console.log(response.data);
+
+                setTimeout(function(){ 
+                    window.location.assign(localStorage.connection_url + '/web/?token=' + response.data.token);
+                }, 3000);
+
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        });
+
+        // Get IP
+        fetch(localStorage.connection_url + '/api/test', {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+        .then(data => data.json())
+        .then(response => {
+            // // // console.log(response.data);
+            // alert(response.data);
+            // // console.log(response);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+    </script>
+</body>
+
+</html>

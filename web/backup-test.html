@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEST DATA</title>
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <pre></pre>
+	<script type="text/javascript">
+      // Get reward point by id
+          fetch('https://reward-point-system.herokuapp.com/api/reward-point/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjoiLU1jWXdUSllYRkJDQmZ6STJqWl8iLCJ3YWxsZXRfYWRkcmVzcyI6ImIzYzQ4OTYwLWQ2ODYtNTAyNy05ZTVmLTAzNzFkODk3YWIyYSIsImlhdCI6MTYyNDEwMDY5MywiZXhwIjo0Nzc3NzAwNjkzfQ.pqr79VdRd9K43kaw1mofa6i2LtbSNvz8k1I12DiE8hU', {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify(data),
+          })
+          .then(data => data.json())
+          .then(response => {
+            $('pre').text(JSON.stringify(response.data));
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+	</script>
+</body>
+</html>

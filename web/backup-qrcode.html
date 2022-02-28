@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ophir</title>
+    <!-- <title>Ophir - Generate QR Codes</title> -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/GothamBook.css">
+    <link rel="stylesheet" href="assets/css/--mp---Masonry-Gallery-with-Loader.css">
+    <link rel="stylesheet" href="assets/css/marquee.css">
+    <link rel="stylesheet" href="assets/css/Masonry-gallery-cards-responsive.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/qrcode-scan.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="text/javascript">
+        // localStorage.setItem('connection_url', 'http://localhost:8080');
+        localStorage.setItem('connection_url', 'https://reward-point-system.herokuapp.com');
+        // localStorage.setItem('connection_url', 'https://www.ziongems.com');
+    </script>
+</head>
+
+<body style="background: #f7f7f7;">
+    <section>
+	    <ul class="list-inline">
+	        <!-- <li class="list-inline-item" style="margin-top: 10px;">
+	            <div style="width: 336px;height: 192px;position: relative;"><span id="date" style="position: absolute;color: rgb(0,0,0);transform: rotate(-90deg);top: 65px;right: 27px;font-size: 14px;line-height: 14px;">11/2121<br /></span><span style="position: absolute;color: rgb(0,0,0);transform: rotate(-90deg);top: 105px;right: 35px;font-size: 8px;line-height: 10px;">VALID<br />THRU</span><span id="qrcode" style="position: absolute;width: 100px;top: 40px;right: 65px;"></span><img class="img-fluid" src="qrcode_background.jpg" /></div>
+	        </li> -->
+	    </ul>
+	</section>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert2@10"></script>
+    <script type="text/javascript" src="assets/js/moment.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/qrcode-generate-lib.js"></script>
+    <script type="text/javascript">
+
+    	$('ul').html('');
+    	for(let x = 1; x <= 1; x++) {
+    		// // console.log(x);
+
+    		// Generate new account
+	        fetch(localStorage.connection_url + '/api/account', {
+	          method: 'POST',
+	          mode: 'cors',
+	          headers: {
+	            'Content-Type': 'application/json',
+	            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjQwOTkzNzIsImV4cCI6NDc3NzY5OTM3Mn0.__xIqaMbhGVOBxZxh6P4tTUsur6fW-hDofmUubD3eck'
+	          },
+	          body: JSON.stringify({
+	          }),
+	        })
+	        .then(data => data.json())
+	        .then(response => {
+	            // console.log(response.data);
+	            // https://reward-point-system.herokuapp.com/web/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjoiLU1aTm43T0FEYjRna2xRbkRxbnIiLCJpYXQiOjE2MTk2MTg3MjgsImV4cCI6NDc3MzIxODcyOH0.BXppbKjpdteBX5IW-E75SnCmqwWfvT4uH1rAaRwDOwY
+	            $('ul').append('<li class="list-inline-item" style="margin-top: 10px;"> <div style="width: 4.2in; position: relative;"><span id="expiration' + x + '" style="position: absolute;color: rgb(0,0,0);transform: rotate(-90deg);top: 95px;right: 30px;font-size: 16px;line-height: 14px;">00/0000<br /></span><span style="position: absolute;color: rgb(0,0,0);transform: rotate(-90deg);top: 145px;right: 35px;font-size: 12px;line-height: 14px;">VALID<br />THRU</span><span id="qrcode' + x + '" style="position: absolute;width: 100px;top: 60px;right: 110px;"></span><img class="img-fluid" src="assets/img/qrcode_background.jpg" /></div> </li>');
+
+	            let typeNumber = 11;
+				let errorCorrectionLevel = 'L';
+				let qr = qrcode(typeNumber, errorCorrectionLevel);
+				qr.addData(localStorage.connection_url + '/web/?token=' + response.data.token);
+				qr.make();
+				
+				$('span#qrcode' + x).html(qr.createImgTag());
+				$('span#qrcode' + x + ' img').attr('height', '130');
+				$('span#qrcode' + x + ' img').attr('width', '130');
+
+				var date = new Date(response.data.exp * 1000);
+				var day = date.getDate();       //day
+			    var month = date.getMonth() + 1; //month
+			    var year = date.getFullYear();   //year
+			    var expiration = (month + 1) + "/" + year;
+
+			    // let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			    // // // console.log(months[month]);
+
+				$('span#expiration' + x).text(expiration);
+	        })
+	        .catch((error) => {
+	          console.error('Error:', error);
+	        });
+
+    	}
+
+    </script>
+    <!-- <script src="assets/js/controllers/app.js"></script> -->
+    <!-- <script src="assets/js/qr-packed-lib.js"></script> -->
+    <!-- <script src="assets/js/controllers/qrcode-scan.js"></script> -->
+    <!-- <script src="assets/js/controllers/service.js"></script> -->
+</body>
+
+</html>
